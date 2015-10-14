@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+This is what will be entered:<br />
+some text [link=sandwich.com]sandwich.com[/link] some more text.
+<p id="mainBody">
+This is what will be rendered:<br />
+some text [link=sandwich.com]sandwich.com[/link] some more text.
+</p>
+
+<script>
+var bodyText = document.getElementById("mainBody").innerHTML;
+bodyText = bodyText.replace(/\[link=/i, '<a href="http://');
+bodyText = bodyText.replace(/\[\/link\]/i, '</a>');
+bodyText = bodyText.replace(/\]/i, '">');
+document.getElementById("mainBody").innerHTML = bodyText;
+</script>
+</body>
+</html>
